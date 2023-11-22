@@ -19,6 +19,9 @@ types
 build
 prettier.config.cjs
 rollup.config.mjs
+babel.config.cjs
+image.png
+jest.config.mjs
 
 #other
 .github

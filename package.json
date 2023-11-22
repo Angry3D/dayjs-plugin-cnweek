@@ -1,6 +1,6 @@
 {
   "name": "@relaxcoder/dayjs-plugin-cnweek",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "a plugin of dayjs, to get or set the chinese week",
   "private": false,
   "main": "dist/index.js",
