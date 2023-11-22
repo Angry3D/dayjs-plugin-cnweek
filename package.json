@@ -1,8 +1,11 @@
 {
-  "name": "dayjs-plugin-cnweek",
+  "name": "@relaxcoder/dayjs-plugin-cnweek",
   "version": "0.0.1",
-  "description": "get or set chinese week",
-  "main": "index.js",
+  "description": "a plugin of dayjs, to get or set the chinese week",
+  "private": false,
+  "main": "dist/index.js",
+  "author": "relax<385906070@qq.com>",
+  "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.mjs",
     "test": "jest"
@@ -13,11 +16,10 @@
   },
   "keywords": [
     "dayjs",
+    "plugin",
     "chinese",
     "week"
   ],
-  "author": "relax",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Angry3D/dayjs-plugin-cnweek/issues"
   },
