@@ -29,6 +29,7 @@ YYYY-MM-DD-short-stage-name.md
 
 | 日期 | 归档文件 | 关联待办 | 阶段 |
 | --- | --- | --- | --- |
+| 2026-05-30 | `2026-05-30-npm-package-boundary.md` | TODO-0001, TODO-0002 | npm 发布包边界整改 |
 
 
 ## 工作流

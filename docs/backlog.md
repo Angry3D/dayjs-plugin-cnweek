@@ -36,9 +36,7 @@
 
 | ID | 优先级 | 状态 | 类型 | 事项 | 来源 | 证据 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| TODO-0001 | P0 | candidate | bug | 修正 npm 发布包内容与入口一致性 | 本次工程巡检 + npm 开源包最佳实践复核 | `package.json` 的 `main` 指向 `dist/index.js`；未构建时 `npm pack --dry-run` 未包含 `dist/index.js`，同时包含 `AGENTS.md` 和 `docs/` | 使用 `files` 白名单控制发布包内容，确保 `dist/`、类型声明、README、LICENSE 被包含，并通过 `pnpm pack --dry-run` 验证。 |
-| TODO-0002 | P0 | candidate | bug | 避免 AI 工作流文档被发布到 npm 包 | 本次工程巡检 + npm 开源包最佳实践复核 | `npm_config_cache=.npm-cache npm pack --dry-run` 显示 tarball 包含 `AGENTS.md` 与 `docs/` | 可与 TODO-0001 合并实施；优先用 `files` 字段定义发布边界。 |
-| TODO-0007 | P0 | candidate | chore | 明确 pnpm 为包管理器并稳定本地验证流程 | 用户明确方向 + 本次工程巡检 | 用户确认后续使用 pnpm；仓库没有锁文件；本地未安装依赖时 `npm test` 与 `npm run build` 均因命令缺失失败 | 增加 `packageManager`，生成并提交 `pnpm-lock.yaml`，统一 README 与脚本中的安装、测试、构建、打包命令。 |
+| TODO-0007 | P0 | candidate | chore | 明确 pnpm 为包管理器并稳定本地验证流程 | 用户明确方向 + 本次工程巡检 | 用户确认后续使用 pnpm；已生成 `pnpm-lock.yaml`；尚未声明 `packageManager` 或统一 README 命令 | 增加 `packageManager`，统一 README 与脚本中的安装、测试、构建、打包命令。 |
 | TODO-0009 | P0 | candidate | chore | 建立 CI 基础验证流水线 | npm 开源包最佳实践复核 | 当前仓库未见 GitHub Actions 配置；发布前缺少自动化验证链路 | 建议 CI 执行 `pnpm install --frozen-lockfile`、`pnpm test`、`pnpm build`、`pnpm typecheck`、`pnpm pack --dry-run`。 |
 | TODO-0003 | P1 | candidate | bug | 补齐跨年份和边界日期测试矩阵 | 本次工程巡检 + TS/ESM 迁移风险复核 | 现有测试主要覆盖 2023 年 1 月少量 get/set 场景，缺少 12 月 31 日、闰年、1 月 1 日不同星期、跨多年 weekVal 等场景 | 这是日期插件的核心正确性保障，应优先于源码重构和模块迁移。 |
 | TODO-0004 | P1 | candidate | feature | 迁移到 TypeScript 并发布类型声明 | 用户明确方向 + 本次工程巡检 + TypeScript 包发布最佳实践复核 | 用户确认后续使用 TypeScript；README 用 TS 风格描述 API，但仓库没有类型声明；`.npmignore` 还排除了 `types` | 将源码迁移到 `src/index.ts`，生成 `.d.ts`，配置 `types` / `exports.types`，声明 Day.js 插件扩展类型。 |
