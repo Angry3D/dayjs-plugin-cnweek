@@ -32,6 +32,8 @@
 - 项目包含变更记录文件：`CHANGELOG.md`。
 - 版本管理与 changelog 流程记录在 `docs/versioning.md`。
 - `package.json.files` 包含 `CHANGELOG.md`，发布包会携带变更记录。
+- README 面向 npm 使用者，主要包含安装、快速开始、API、TypeScript 和兼容性说明。
+- README 不再依赖本地 `image.png` 展示中国式周数。
 - 项目定位为已经发布过的 npm 开源插件包，当前目标是对现有工程做优化和整改。
 - 用户已确认后续优化方向包括：使用 pnpm 作为包管理器、使用 ES Module 作为模块化方案、使用 TypeScript。
 
@@ -76,6 +78,7 @@
 - `CHANGELOG.md` 存在，并包含 `[Unreleased]` 与 `[1.0.0]` 区块。
 - `docs/versioning.md` 存在，记录手动 SemVer、changelog 维护规则和最终发布前流程。
 - `package.json.files` 包含 `CHANGELOG.md`。
+- `README.md` 使用文字和表格解释中国式周数，并移除本地开发、发布和版本管理章节。
 - 用户通过 pnpm 安装依赖后生成 `pnpm-lock.yaml`，并在 2026-05-30 的 npm 发布包边界整改阶段提交。
 - 用户于 2026-05-30 明确说明当前工程是已经发布过的 npm 插件包，目前任务是对当前工程做优化和整改。
 - 用户于 2026-05-30 明确后续优化方向为 pnpm、ES Module 和 TypeScript。
@@ -89,6 +92,7 @@
 - 2026-05-30 新增 `CHANGELOG.md` 与 `docs/versioning.md`，采用手动 SemVer + changelog 流程，并将真实发布保留到最终阶段。
 - 2026-05-30 增加 `format`、`format:check`、`lint` 脚本，并将 lint 纳入 CI 与 `verify`。
 - 2026-05-30 重构 `cnWeek(week)` 输入解析与跨年设置逻辑，保留 `parseInt` 兼容语义，并用迭代归一化替代跨年递归。
+- 2026-05-30 重写 README 为面向 npm 使用者的说明，移除 `image.png` 依赖和维护者细节。
 
 ## 重要文件
 

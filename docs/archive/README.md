@@ -27,18 +27,19 @@ YYYY-MM-DD-short-stage-name.md
 
 ## 归档索引
 
-| 日期       | 归档文件                                       | 关联待办             | 阶段                      |
-| ---------- | ---------------------------------------------- | -------------------- | ------------------------- |
-| 2026-05-30 | `2026-05-30-npm-package-boundary.md`           | TODO-0001, TODO-0002 | npm 发布包边界整改        |
-| 2026-05-30 | `2026-05-30-pnpm-workflow.md`                  | TODO-0007            | pnpm 管理器与本地验证流程 |
-| 2026-05-30 | `2026-05-30-cnweek-boundary-tests.md`          | TODO-0003            | cnWeek 边界测试矩阵       |
-| 2026-05-30 | `2026-05-30-ci-workflow.md`                    | TODO-0009            | CI 基础验证流水线         |
-| 2026-05-30 | `2026-05-30-typescript-types.md`               | TODO-0004, TODO-0014 | TypeScript 迁移与类型验证 |
-| 2026-05-30 | `2026-05-30-esm-exports.md`                    | TODO-0005            | ESM 与现代 exports 入口   |
-| 2026-05-30 | `2026-05-30-package-compatibility-metadata.md` | TODO-0013            | 运行时兼容范围和包元数据  |
-| 2026-05-30 | `2026-05-30-safe-release-preparation.md`       | TODO-0010            | 安全发布准备流程          |
-| 2026-05-30 | `2026-05-30-versioning-changelog.md`           | TODO-0011            | 版本管理与 changelog 流程 |
-| 2026-05-30 | `2026-05-30-quality-checks.md`                 | TODO-0012            | 代码质量脚本和静态检查    |
+| 日期       | 归档文件                                       | 关联待办             | 阶段                          |
+| ---------- | ---------------------------------------------- | -------------------- | ----------------------------- |
+| 2026-05-30 | `2026-05-30-npm-package-boundary.md`           | TODO-0001, TODO-0002 | npm 发布包边界整改            |
+| 2026-05-30 | `2026-05-30-pnpm-workflow.md`                  | TODO-0007            | pnpm 管理器与本地验证流程     |
+| 2026-05-30 | `2026-05-30-cnweek-boundary-tests.md`          | TODO-0003            | cnWeek 边界测试矩阵           |
+| 2026-05-30 | `2026-05-30-ci-workflow.md`                    | TODO-0009            | CI 基础验证流水线             |
+| 2026-05-30 | `2026-05-30-typescript-types.md`               | TODO-0004, TODO-0014 | TypeScript 迁移与类型验证     |
+| 2026-05-30 | `2026-05-30-esm-exports.md`                    | TODO-0005            | ESM 与现代 exports 入口       |
+| 2026-05-30 | `2026-05-30-package-compatibility-metadata.md` | TODO-0013            | 运行时兼容范围和包元数据      |
+| 2026-05-30 | `2026-05-30-safe-release-preparation.md`       | TODO-0010            | 安全发布准备流程              |
+| 2026-05-30 | `2026-05-30-versioning-changelog.md`           | TODO-0011            | 版本管理与 changelog 流程     |
+| 2026-05-30 | `2026-05-30-quality-checks.md`                 | TODO-0012            | 代码质量脚本和静态检查        |
+| 2026-05-30 | `2026-05-30-cnweek-input-refactor.md`          | TODO-0006            | cnWeek 输入处理与跨年设置重构 |
 
 ## 工作流
 
