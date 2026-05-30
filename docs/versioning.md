@@ -52,7 +52,10 @@
 9. release check 通过后，由维护者本人执行 `npm stage publish --access public`。
 10. 维护者在 npm staging 中复核包内容，并使用 2FA 审批正式上线。
 
-## 当前未发布变更判断
+## 当前发布准备状态
 
-当前 `package.json` 版本仍为 `1.0.0`。本轮优化完成后，预计至少需要发布一个
-`minor` 版本，因为已经新增 TypeScript 类型声明、ESM 入口和现代 `exports` 配置。
+当前 `package.json` 版本已准备为 `1.1.0`。本轮优化使用 `minor` 版本，因为已经新增
+TypeScript 类型声明、ESM 入口和现代 `exports` 配置。
+
+后续真实发布仍需维护者手动创建并推送 `v1.1.0` tag，等待 release check 通过后再执行
+`npm stage publish --access public`。

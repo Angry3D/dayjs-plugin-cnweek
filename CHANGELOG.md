@@ -5,6 +5,8 @@ SemVer 管理版本号。
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-05-30
+
 ### Added
 
 - 增加 TypeScript 构建与类型声明输出。
