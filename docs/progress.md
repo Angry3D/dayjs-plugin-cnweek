@@ -7,29 +7,27 @@
 
 ## 当前目标
 
-推进 `TODO-0016`：增加英文 README，并在 GitHub 上提供中英文手动切换入口。
+执行最终发布前总检查，但不执行真实 npm 发布。
 
 ## 关联待办
 
-- `TODO-0016` 增加英文 README 与 GitHub 语言切换
+暂无。当前 backlog 已清空，发布动作保留为最终人工步骤。
 
 ## 当前计划
 
-1. 新增 `README.en.md`，保持与中文 README 同样的使用者文档结构。
-2. 在 `README.md` 顶部增加 English 切换链接。
-3. 在 `README.en.md` 顶部增加简体中文切换链接。
-4. 将 `README.en.md` 纳入 `package.json.files`。
-5. 运行验证并记录结果。
+1. 归档 `TODO-0008`、`TODO-0015`、`TODO-0016`。
+2. 运行完整验证。
+3. 检查 npm pack dry-run 内容。
+4. 汇总需要维护者手动执行的最终发布步骤。
 
 ## 任务拆解
 
-| 任务                      | 状态 | 备注                                             |
-| ------------------------- | ---- | ------------------------------------------------ |
-| 登记 `TODO-0016` 当前阶段 | done | 已新增待办并切换当前进度。                       |
-| 新增英文 README           | done | 已完整翻译当前中文使用者文档。                   |
-| 增加语言切换入口          | done | 中英文 README 顶部已互链。                       |
-| 更新发布包文件边界        | done | 已将 `README.en.md` 加入 `package.json.files`。  |
-| 执行验证并沉淀结论        | done | 已运行 `pnpm run verify` 与 `git diff --check`。 |
+| 任务                   | 状态 | 备注                                                                  |
+| ---------------------- | ---- | --------------------------------------------------------------------- |
+| 归档剩余完成事项       | done | 已归档 `TODO-0008`、`TODO-0015`、`TODO-0016` 并清空 backlog。         |
+| 运行完整验证           | done | 已运行 `pnpm run verify`。                                            |
+| 检查 pack dry-run 内容 | done | tarball 包含 README、README.en、CHANGELOG、dist、LICENSE 和 package。 |
+| 汇总人工发布步骤       | done | 已汇总人工步骤，不执行 tag、push 或 npm publish。                     |
 
 ## 状态
 
@@ -37,9 +35,9 @@ done
 
 ## 决策记录
 
-- 默认 npm 展示仍使用 `README.md`。
-- GitHub 手动切换通过 README 顶部互链实现。
-- 英文 README 只面向使用者，不加入维护者发布或开发细节。
+- 本阶段只做发布前检查，不执行真实发布。
+- `npm stage publish --access public` 必须由维护者本人执行。
+- 发布前版本整理预计采用 `1.1.0`，但版本号更新应在维护者确认后执行。
 
 ## 阻塞项
 
@@ -49,8 +47,10 @@ done
 
 - `pnpm run verify`
 - `git diff --check`
-- `npm pack --dry-run` 由 `pnpm run verify` 触发，tarball 内容包含 `README.en.md`
+- `npm pack --dry-run` 内容已通过 `pnpm run verify` 覆盖，包含：
+  `CHANGELOG.md`、`LICENSE`、`README.en.md`、`README.md`、
+  `dist/index.cjs`、`dist/index.d.ts`、`dist/index.mjs`、`package.json`。
 
 ## 下一步
 
-等待用户确认是否归档 `TODO-0008`、`TODO-0015` 和 `TODO-0016`，再进入最终发布前总检查。
+等待维护者确认是否进入版本号与 changelog release 准备；真实 npm 发布仍保留为维护者最终手动步骤。
