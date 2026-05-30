@@ -17,6 +17,7 @@
 - `package.json` 包含现代 `exports` 入口，提供 `types`、`import`、`require` 和 `default` 条件。
 - 源码入口为 `src/index.ts`，测试入口为 `test/index.test.js`。
 - `cnWeek(week)` 设置逻辑会显式解析 week 输入，并对跨年 week 使用迭代归一化。
+- 大跨度 `cnWeek(week)` 归一化使用 400 年 / 21215 周周期跳跃。
 - 构建工具为 TypeScript + Rollup，测试工具为 Jest，转译配置使用 Babel。
 - `dayjs` 声明为 peer dependency，范围为 `>=1.8.0 <2`，同时作为开发依赖用于测试。
 - `package.json` 声明 `sideEffects: false`。
@@ -69,7 +70,7 @@
 - `babel.config.cjs` 存在。
 - `src/index.ts`、`test/index.test.js` 和 `test/types.ts` 存在。
 - `src/index.ts` 包含 `normalizeWeekValue`、`normalizeCnWeekTarget` 和 `setCnWeekInYear` helper。
-- `test/index.test.js` 覆盖带后缀字符串解析和大跨度跨年 week 设置。
+- `test/index.test.js` 覆盖带后缀字符串解析、大跨度跨年 week 设置和 54 周年份。
 - `.github/workflows/release.yml` 存在，会在 `v*` tag 推送后执行 `pnpm run verify`，不包含 npm 发布命令。
 - `.github/workflows/ci.yml` 存在，会执行 install、test、lint、build 和 pack dry-run。
 - `docs/release.md` 说明 npm 2FA、人工 staged publish 边界，以及 Trusted Publishing / OIDC / provenance 的后续可选升级路径。
@@ -92,6 +93,7 @@
 - 2026-05-30 新增 `CHANGELOG.md` 与 `docs/versioning.md`，采用手动 SemVer + changelog 流程，并将真实发布保留到最终阶段。
 - 2026-05-30 增加 `format`、`format:check`、`lint` 脚本，并将 lint 纳入 CI 与 `verify`。
 - 2026-05-30 重构 `cnWeek(week)` 输入解析与跨年设置逻辑，保留 `parseInt` 兼容语义，并用迭代归一化替代跨年递归。
+- 2026-05-30 使用 400 年 / 21215 周周期优化大跨度 `cnWeek(week)` 归一化，并补充 54 周年份测试。
 - 2026-05-30 重写 README 为面向 npm 使用者的说明，移除 `image.png` 依赖和维护者细节。
 
 ## 重要文件

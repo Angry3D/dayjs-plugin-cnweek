@@ -9,6 +9,9 @@ export interface CnWeekInfo {
 
 export type CnWeekValue = number | string
 
+const CN_WEEK_CYCLE_YEARS = 400
+const CN_WEEK_CYCLE_WEEKS = 21215
+
 declare module 'dayjs' {
   interface Dayjs {
     cnWeek(): CnWeekInfo
@@ -80,6 +83,13 @@ const cnWeekPlugin: PluginFunc = (_option, dayClass, dayFactory) => {
     while (targetWeek < 1) {
       targetDate = targetDate.subtract(1, 'y')
       targetWeek += getMaxCnWeekOfYear(targetDate)
+
+      const cycleCount = Math.floor((1 - targetWeek) / CN_WEEK_CYCLE_WEEKS)
+
+      if (cycleCount > 0) {
+        targetDate = targetDate.subtract(cycleCount * CN_WEEK_CYCLE_YEARS, 'y')
+        targetWeek += cycleCount * CN_WEEK_CYCLE_WEEKS
+      }
     }
 
     let targetMaxWeek = getMaxCnWeekOfYear(targetDate)
@@ -87,6 +97,14 @@ const cnWeekPlugin: PluginFunc = (_option, dayClass, dayFactory) => {
     while (targetWeek > targetMaxWeek) {
       targetWeek -= targetMaxWeek
       targetDate = targetDate.add(1, 'y')
+
+      const cycleCount = Math.floor((targetWeek - 1) / CN_WEEK_CYCLE_WEEKS)
+
+      if (cycleCount > 0) {
+        targetDate = targetDate.add(cycleCount * CN_WEEK_CYCLE_YEARS, 'y')
+        targetWeek -= cycleCount * CN_WEEK_CYCLE_WEEKS
+      }
+
       targetMaxWeek = getMaxCnWeekOfYear(targetDate)
     }
 
