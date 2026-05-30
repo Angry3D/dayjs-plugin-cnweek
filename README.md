@@ -117,3 +117,6 @@ pnpm run verify
 发布命令由维护者本人执行，并通过 npm 2FA 确认。
 
 详细配置与操作步骤见 [`docs/release.md`](docs/release.md)。
+
+版本号与变更记录规则见 [`docs/versioning.md`](docs/versioning.md) 和
+[`CHANGELOG.md`](CHANGELOG.md)。

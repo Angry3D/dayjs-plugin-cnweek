@@ -36,6 +36,7 @@ YYYY-MM-DD-short-stage-name.md
 | 2026-05-30 | `2026-05-30-typescript-types.md` | TODO-0004, TODO-0014 | TypeScript 迁移与类型验证 |
 | 2026-05-30 | `2026-05-30-esm-exports.md` | TODO-0005 | ESM 与现代 exports 入口 |
 | 2026-05-30 | `2026-05-30-package-compatibility-metadata.md` | TODO-0013 | 运行时兼容范围和包元数据 |
+| 2026-05-30 | `2026-05-30-safe-release-preparation.md` | TODO-0010 | 安全发布准备流程 |
 
 
 ## 工作流

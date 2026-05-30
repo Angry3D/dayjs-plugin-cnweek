@@ -36,8 +36,7 @@
 
 | ID | 优先级 | 状态 | 类型 | 事项 | 来源 | 证据 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| TODO-0010 | P1 | done | chore | 建立安全发布流程 | npm 开源包最佳实践复核 | 当前仓库未见发布工作流；npm 开源包发布涉及账户权限、token 与供应链安全 | 已补只做发布前校验的 workflow 与维护者文档；`npm stage publish` 明确由维护者本人执行，待用户确认后归档。 |
-| TODO-0011 | P2 | candidate | chore | 建立版本管理与 changelog 流程 | npm 开源包最佳实践复核 | 当前仓库未见 changelog 或 release 配置；`.npmignore` 中提到 `.releaserc` 但仓库未记录该文件 | 可评估 Changesets 或语义化 release；明确手动发布与 CI 发布边界。 |
+| TODO-0011 | P2 | done | chore | 建立版本管理与 changelog 流程 | npm 开源包最佳实践复核 | 当前仓库未见 changelog 或 release 配置；`.npmignore` 中提到 `.releaserc` 但仓库未记录该文件 | 已采用轻量手动 SemVer + CHANGELOG 流程；发布仍作为最终阶段由维护者执行，待用户确认后归档。 |
 | TODO-0012 | P2 | candidate | chore | 增加代码质量脚本和静态检查 | npm 开源包最佳实践复核 | 当前已有 `build`、`test`、`typecheck`、`verify` 脚本，但仍没有 `lint` 或格式检查脚本 | 后续评估 ESLint + Prettier 检查，并按需纳入 CI。 |
 | TODO-0006 | P2 | candidate | refactor | 改善 `cnWeek` 实现的可读性和输入处理 | 本次工程巡检 | `src/index.ts` 仍使用 `parseInt`；超大 `weekVal` 仍依赖递归跨年 | 保持行为兼容前提下处理；已有 TODO-0003 测试矩阵兜底。 |
 | TODO-0008 | P3 | candidate | docs | 优化 README 的发布展示完整性 | 本次工程巡检 + npm 开源包最佳实践复核 | README 引用了本地 `image.png`，但 `.npmignore` 排除了 `image.png`；README 已补 pnpm 安装、TypeScript 类型说明和 CommonJS 示例 | 可改为稳定远程图片、保留包内图片，或用文字/表格替代图片说明；继续完善 API 和发布后使用示例。 |
