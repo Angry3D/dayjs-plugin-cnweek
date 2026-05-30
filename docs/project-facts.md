@@ -17,6 +17,7 @@
 - 构建工具为 Rollup，测试工具为 Jest，转译配置使用 Babel。
 - `dayjs` 声明为 peer dependency，同时作为开发依赖用于测试。
 - 当前仓库记录 `pnpm-lock.yaml`。
+- `package.json` 声明包管理器为 `pnpm@8.15.9`。
 - 项目定位为已经发布过的 npm 开源插件包，当前目标是对现有工程做优化和整改。
 - 用户已确认后续优化方向包括：使用 pnpm 作为包管理器、使用 ES Module 作为模块化方案、使用 TypeScript。
 
@@ -46,6 +47,8 @@
 - 用户通过 pnpm 安装依赖后生成 `pnpm-lock.yaml`，并在 2026-05-30 的 npm 发布包边界整改阶段提交。
 - 用户于 2026-05-30 明确说明当前工程是已经发布过的 npm 插件包，目前任务是对当前工程做优化和整改。
 - 用户于 2026-05-30 明确后续优化方向为 pnpm、ES Module 和 TypeScript。
+- 用户于 2026-05-30 明确要求 `package.json` 纳入 `"packageManager": "pnpm@8.15.9"` 和 `engines.node: ">=20 <21"`。
+- 用户于 2026-05-30 根据当前构建产物兼容性判断，确认移除 `engines.node` 限制。
 
 ## 重要文件
 

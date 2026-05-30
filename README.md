@@ -26,6 +26,12 @@ A plugin of dayjs, to get or set the chinese week.
 
 ## 使用方法
 
+安装：
+
+```bash
+pnpm add dayjs @relaxcoder/dayjs-plugin-cnweek
+```
+
 ```js
 import dayjs from 'dayjs'
 import cnWeek from '@relaxcoder/dayjs-plugin-cnweek'
@@ -64,4 +70,21 @@ function cnWeek(): object {}
  * 3. 星期对齐指的是：一个 Dayjs 设置 cnWeek 后返回的 Dayjs 两者周几保持一致
  */
 function cnWeek(week): Dayjs {}
+```
+
+## 本地开发
+
+本项目使用 pnpm 管理依赖。
+
+```bash
+pnpm install
+pnpm test
+pnpm run build
+pnpm run pack:dry-run
+```
+
+也可以运行完整本地验证：
+
+```bash
+pnpm run verify
 ```
