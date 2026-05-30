@@ -23,6 +23,8 @@
 - `package.json` 声明包管理器为 `pnpm@8.15.9`。
 - 仓库包含 GitHub Actions CI 配置：`.github/workflows/ci.yml`。
 - 仓库包含发布前校验 workflow：`.github/workflows/release.yml`。
+- 仓库包含 Prettier 配置：`prettier.config.cjs`。
+- 仓库包含 Prettier ignore 配置：`.prettierignore`。
 - `package.json` 声明类型入口为 `dist/index.d.ts`。
 - 项目包含 TypeScript 类型验证入口：`test/types.ts`。
 - 维护者发布说明记录在 `docs/release.md`。
@@ -35,10 +37,13 @@
 ## 常用命令
 
 - `build:ts`: `tsc -p tsconfig.build.json`
+- `format`: `prettier --write .`
+- `format:check`: `prettier --check .`
+- `lint`: `pnpm run format:check && pnpm run typecheck`
 - `build`: `rollup -c rollup.config.mjs`
 - `test`: `jest`
 - `typecheck`: `tsc --noEmit`
-- `verify`: `pnpm test && pnpm run typecheck && pnpm run pack:dry-run`
+- `verify`: `pnpm run lint && pnpm test && pnpm run pack:dry-run`
 - `release workflow verify step`: `pnpm run verify`
 
 ## 推断事实
@@ -61,7 +66,10 @@
 - `babel.config.cjs` 存在。
 - `src/index.ts`、`test/index.test.js` 和 `test/types.ts` 存在。
 - `.github/workflows/release.yml` 存在，会在 `v*` tag 推送后执行 `pnpm run verify`，不包含 npm 发布命令。
+- `.github/workflows/ci.yml` 存在，会执行 install、test、lint、build 和 pack dry-run。
 - `docs/release.md` 说明 npm 2FA、人工 staged publish 边界，以及 Trusted Publishing / OIDC / provenance 的后续可选升级路径。
+- `prettier.config.cjs` 存在，配置 80 字符宽度、单引号、无分号和无 trailing comma。
+- `.prettierignore` 存在，忽略依赖、构建产物、缓存、tgz 和 lockfile。
 - `CHANGELOG.md` 存在，并包含 `[Unreleased]` 与 `[1.0.0]` 区块。
 - `docs/versioning.md` 存在，记录手动 SemVer、changelog 维护规则和最终发布前流程。
 - `package.json.files` 包含 `CHANGELOG.md`。
@@ -76,6 +84,7 @@
 - 2026-05-30 明确包元数据：`sideEffects: false`，`peerDependencies.dayjs` 为 `>=1.8.0 <2`，README 增加兼容性说明。
 - 2026-05-30 新增 `release.yml` 与 `docs/release.md`，默认只自动执行发布前校验；`npm stage publish` 由维护者本人执行，以避免长期 npm token 并保留 2FA 审批。
 - 2026-05-30 新增 `CHANGELOG.md` 与 `docs/versioning.md`，采用手动 SemVer + changelog 流程，并将真实发布保留到最终阶段。
+- 2026-05-30 增加 `format`、`format:check`、`lint` 脚本，并将 lint 纳入 CI 与 `verify`。
 
 ## 重要文件
 
@@ -85,6 +94,8 @@
 - `CHANGELOG.md`
 - `docs/release.md`
 - `docs/versioning.md`
+- `.prettierignore`
+- `prettier.config.cjs`
 - `src/index.ts`
 - `test/index.test.js`
 - `test/types.ts`

@@ -121,9 +121,7 @@ const cnWeekPlugin: PluginFunc = (_option, dayClass, dayFactory) => {
   function getIsoStartOf(date: dayjs.Dayjs, startOf = true) {
     return startOf
       ? date.date(date.date() - (getIsoWeekDay(date) - 1)).startOf('d')
-      : date
-          .date(date.date() - 1 - (getIsoWeekDay(date) - 1) + 7)
-          .endOf('d')
+      : date.date(date.date() - 1 - (getIsoWeekDay(date) - 1) + 7).endOf('d')
   }
 
   function getIsoEndOf(date: dayjs.Dayjs) {

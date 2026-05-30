@@ -98,6 +98,7 @@ function cnWeek(week): Dayjs {}
 
 ```bash
 pnpm install
+pnpm run lint
 pnpm test
 pnpm run typecheck
 pnpm run build
@@ -108,6 +109,12 @@ pnpm run pack:dry-run
 
 ```bash
 pnpm run verify
+```
+
+格式化代码和文档：
+
+```bash
+pnpm run format
 ```
 
 ## 维护者发布

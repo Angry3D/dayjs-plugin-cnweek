@@ -3,7 +3,7 @@ name: Release Check
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 
 permissions:
   contents: read

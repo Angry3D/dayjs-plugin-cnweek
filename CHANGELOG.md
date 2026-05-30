@@ -12,6 +12,7 @@ SemVer 管理版本号。
 - 增加 GitHub Actions CI 与 release check。
 - 增加安全发布准备文档，明确人工 staged publish 边界。
 - 增加 changelog 与版本管理流程文档。
+- 增加格式检查和统一 lint 脚本，并纳入 CI 与 verify。
 - 增加 cnWeek 边界测试矩阵。
 
 ### Changed

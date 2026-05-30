@@ -29,10 +29,13 @@
     "clean": "rm -rf build dist",
     "build": "pnpm run clean && pnpm run build:ts && rollup -c rollup.config.mjs",
     "build:ts": "tsc -p tsconfig.build.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "pnpm run format:check && pnpm run typecheck",
     "test": "pnpm run build:ts && jest",
     "typecheck": "tsc --noEmit",
     "pack:dry-run": "npm_config_cache=.npm-cache npm pack --dry-run",
-    "verify": "pnpm test && pnpm run typecheck && pnpm run pack:dry-run"
+    "verify": "pnpm run lint && pnpm test && pnpm run pack:dry-run"
   },
   "repository": {
     "type": "git",
