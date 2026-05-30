@@ -17,7 +17,8 @@
 - `package.json` 包含现代 `exports` 入口，提供 `types`、`import`、`require` 和 `default` 条件。
 - 源码入口为 `src/index.ts`，测试入口为 `test/index.test.js`。
 - 构建工具为 TypeScript + Rollup，测试工具为 Jest，转译配置使用 Babel。
-- `dayjs` 声明为 peer dependency，同时作为开发依赖用于测试。
+- `dayjs` 声明为 peer dependency，范围为 `>=1.8.0 <2`，同时作为开发依赖用于测试。
+- `package.json` 声明 `sideEffects: false`。
 - 当前仓库记录 `pnpm-lock.yaml`。
 - `package.json` 声明包管理器为 `pnpm@8.15.9`。
 - 仓库包含 GitHub Actions CI 配置：`.github/workflows/ci.yml`。
@@ -61,6 +62,7 @@
 - 2026-05-30 新增 `.github/workflows/ci.yml`，CI 使用 Node 20 与 `pnpm@8.15.9`，执行 install、test、build 和 pack dry-run。
 - 2026-05-30 将源码迁移到 TypeScript，并通过 `tsc` 生成 `build/index.js` 与 `dist/index.d.ts`。
 - 2026-05-30 配置 ESM 优先入口和 CJS fallback，发布入口为 `exports.import`、`exports.require`、`exports.types`。
+- 2026-05-30 明确包元数据：`sideEffects: false`，`peerDependencies.dayjs` 为 `>=1.8.0 <2`，README 增加兼容性说明。
 
 ## 重要文件
 

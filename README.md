@@ -84,6 +84,14 @@ function cnWeek(): object {}
 function cnWeek(week): Dayjs {}
 ```
 
+## 兼容性
+
+- 支持 ESM `import` 和 CommonJS `require`。
+- 包内置 TypeScript 类型声明，类型入口为 `dist/index.d.ts`。
+- 需要配合 `dayjs >=1.8.0 <2` 使用。
+- 当前运行时代码不依赖 Node 专属 API，因此不限制消费者的 Node 版本。
+- 包声明为无副作用模块，支持打包工具进行 tree shaking。
+
 ## 本地开发
 
 本项目使用 pnpm 管理依赖。

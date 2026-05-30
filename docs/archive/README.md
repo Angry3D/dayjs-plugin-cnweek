@@ -34,6 +34,8 @@ YYYY-MM-DD-short-stage-name.md
 | 2026-05-30 | `2026-05-30-cnweek-boundary-tests.md` | TODO-0003 | cnWeek 边界测试矩阵 |
 | 2026-05-30 | `2026-05-30-ci-workflow.md` | TODO-0009 | CI 基础验证流水线 |
 | 2026-05-30 | `2026-05-30-typescript-types.md` | TODO-0004, TODO-0014 | TypeScript 迁移与类型验证 |
+| 2026-05-30 | `2026-05-30-esm-exports.md` | TODO-0005 | ESM 与现代 exports 入口 |
+| 2026-05-30 | `2026-05-30-package-compatibility-metadata.md` | TODO-0013 | 运行时兼容范围和包元数据 |
 
 
 ## 工作流

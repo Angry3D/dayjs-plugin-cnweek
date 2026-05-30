@@ -20,6 +20,7 @@
     "README.md",
     "LICENSE"
   ],
+  "sideEffects": false,
   "author": "relax<385906070@qq.com>",
   "license": "MIT",
   "scripts": {
@@ -47,7 +48,7 @@
   },
   "homepage": "https://github.com/Angry3D/dayjs-plugin-cnweek#readme",
   "peerDependencies": {
-    "dayjs": "*"
+    "dayjs": ">=1.8.0 <2"
   },
   "devDependencies": {
     "@babel/core": "^7.23.3",
