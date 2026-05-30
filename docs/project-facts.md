@@ -12,7 +12,9 @@
 - 包名称：`@relaxcoder/dayjs-plugin-cnweek`。
 - 包描述：a plugin of dayjs, to get or set the chinese week
 - 项目命令定义在 `package.json` 的 scripts 中。
-- 包入口声明为 `dist/index.js`。
+- 包 CommonJS 入口声明为 `dist/index.cjs`。
+- 包 ES Module 入口声明为 `dist/index.mjs`。
+- `package.json` 包含现代 `exports` 入口，提供 `types`、`import`、`require` 和 `default` 条件。
 - 源码入口为 `src/index.ts`，测试入口为 `test/index.test.js`。
 - 构建工具为 TypeScript + Rollup，测试工具为 Jest，转译配置使用 Babel。
 - `dayjs` 声明为 peer dependency，同时作为开发依赖用于测试。
@@ -44,9 +46,10 @@
 
 - `package.json` 包含 `scripts` 对象。
 - 仓库根目录存在 `package.json`。
-- `package.json` 的 `main` 字段为 `dist/index.js`。
+- `package.json` 的 `main` 字段为 `dist/index.cjs`。
+- `package.json` 的 `module` 字段为 `dist/index.mjs`。
 - `package.json` 的 `peerDependencies` 包含 `dayjs`。
-- `rollup.config.mjs` 存在，并以 `build/index.js` 为输入、`dist/index.js` 为输出。
+- `rollup.config.mjs` 存在，并以 `build/index.js` 为输入，输出 `dist/index.mjs` 和 `dist/index.cjs`。
 - `jest.config.mjs` 存在，并匹配 `test/(.*).test.js$`。
 - `babel.config.cjs` 存在。
 - `src/index.ts`、`test/index.test.js` 和 `test/types.ts` 存在。
@@ -57,6 +60,7 @@
 - 用户于 2026-05-30 根据当前构建产物兼容性判断，确认移除 `engines.node` 限制。
 - 2026-05-30 新增 `.github/workflows/ci.yml`，CI 使用 Node 20 与 `pnpm@8.15.9`，执行 install、test、build 和 pack dry-run。
 - 2026-05-30 将源码迁移到 TypeScript，并通过 `tsc` 生成 `build/index.js` 与 `dist/index.d.ts`。
+- 2026-05-30 配置 ESM 优先入口和 CJS fallback，发布入口为 `exports.import`、`exports.require`、`exports.types`。
 
 ## 重要文件
 

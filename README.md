@@ -46,6 +46,15 @@ dayjs('2023-01-01').cnWeek()
 dayjs().cnWeek(1)
 ```
 
+CommonJS：
+
+```js
+const dayjs = require('dayjs')
+const cnWeek = require('@relaxcoder/dayjs-plugin-cnweek')
+
+dayjs.extend(cnWeek)
+```
+
 ## API
 
 本包已内置 TypeScript 类型声明。使用 `dayjs.extend(cnWeek)` 后，`Dayjs`

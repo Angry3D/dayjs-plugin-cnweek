@@ -4,8 +4,17 @@
   "description": "a plugin of dayjs, to get or set the chinese week",
   "private": false,
   "packageManager": "pnpm@8.15.9",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    }
+  },
   "files": [
     "dist",
     "README.md",
@@ -15,7 +24,8 @@
   "license": "MIT",
   "scripts": {
     "prepack": "pnpm run build",
-    "build": "rollup -c rollup.config.mjs",
+    "clean": "rm -rf build dist",
+    "build": "pnpm run clean && pnpm run build:ts && rollup -c rollup.config.mjs",
     "build:ts": "tsc -p tsconfig.build.json",
     "test": "pnpm run build:ts && jest",
     "typecheck": "tsc --noEmit",

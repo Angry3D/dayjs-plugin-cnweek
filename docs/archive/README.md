@@ -33,6 +33,7 @@ YYYY-MM-DD-short-stage-name.md
 | 2026-05-30 | `2026-05-30-pnpm-workflow.md` | TODO-0007 | pnpm 管理器与本地验证流程 |
 | 2026-05-30 | `2026-05-30-cnweek-boundary-tests.md` | TODO-0003 | cnWeek 边界测试矩阵 |
 | 2026-05-30 | `2026-05-30-ci-workflow.md` | TODO-0009 | CI 基础验证流水线 |
+| 2026-05-30 | `2026-05-30-typescript-types.md` | TODO-0004, TODO-0014 | TypeScript 迁移与类型验证 |
 
 
 ## 工作流

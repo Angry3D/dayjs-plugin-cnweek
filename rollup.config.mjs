@@ -4,12 +4,19 @@ import babel from '@rollup/plugin-babel'
 
 export default defineConfig({
   input: 'build/index.js',
-  output: {
-    file: 'dist/index.js',
-    format: 'umd',
-    name: 'dayjs_plugin_cnWeek',
-    compact: true
-  },
+  output: [
+    {
+      file: 'dist/index.mjs',
+      format: 'es',
+      compact: true
+    },
+    {
+      file: 'dist/index.cjs',
+      format: 'cjs',
+      exports: 'default',
+      compact: true
+    }
+  ],
   plugins: [
     babel({
       babelHelpers: 'bundled',
