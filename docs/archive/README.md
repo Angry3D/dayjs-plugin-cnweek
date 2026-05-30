@@ -43,6 +43,7 @@ YYYY-MM-DD-short-stage-name.md
 | 2026-05-30 | `2026-05-30-readme-user-facing.md`             | TODO-0008            | README 使用者文档整理          |
 | 2026-05-30 | `2026-05-30-large-week-normalization.md`       | TODO-0015            | 大跨度 week 归一化与 54 周测试 |
 | 2026-05-30 | `2026-05-30-english-readme.md`                 | TODO-0016            | 英文 README 与语言切换         |
+| 2026-05-30 | `2026-05-30-release-v1.1.0.md`                 | TODO-0017            | v1.1.0 发布                    |
 
 ## 工作流
 

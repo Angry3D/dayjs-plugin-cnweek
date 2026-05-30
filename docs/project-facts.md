@@ -10,6 +10,7 @@
 - 识别到项目文件：package.json, README.md。
 - 仓库包含 `src/` 目录。
 - 包名称：`@relaxcoder/dayjs-plugin-cnweek`。
+- 当前 `package.json` 版本：`1.1.0`。
 - 包描述：a plugin of dayjs, to get or set the chinese week
 - 项目命令定义在 `package.json` 的 scripts 中。
 - 包 CommonJS 入口声明为 `dist/index.cjs`。
@@ -87,6 +88,7 @@
 - 用户通过 pnpm 安装依赖后生成 `pnpm-lock.yaml`，并在 2026-05-30 的 npm 发布包边界整改阶段提交。
 - 用户于 2026-05-30 明确说明当前工程是已经发布过的 npm 插件包，目前任务是对当前工程做优化和整改。
 - 用户于 2026-05-30 明确后续优化方向为 pnpm、ES Module 和 TypeScript。
+- 用户于 2026-05-30 确认 `@relaxcoder/dayjs-plugin-cnweek@1.1.0` 已成功发布。
 - 用户于 2026-05-30 明确要求 `package.json` 纳入 `"packageManager": "pnpm@8.15.9"` 和 `engines.node: ">=20 <21"`。
 - 用户于 2026-05-30 根据当前构建产物兼容性判断，确认移除 `engines.node` 限制。
 - 2026-05-30 新增 `.github/workflows/ci.yml`，CI 使用 Node 20 与 `pnpm@8.15.9`，执行 install、test、build 和 pack dry-run。
