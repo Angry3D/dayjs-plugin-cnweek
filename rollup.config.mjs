@@ -3,7 +3,7 @@ import terser from '@rollup/plugin-terser'
 import babel from '@rollup/plugin-babel'
 
 export default defineConfig({
-  input: 'src/index.js',
+  input: 'build/index.js',
   output: {
     file: 'dist/index.js',
     format: 'umd',

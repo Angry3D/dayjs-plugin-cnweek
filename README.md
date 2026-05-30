@@ -48,6 +48,9 @@ dayjs().cnWeek(1)
 
 ## API
 
+本包已内置 TypeScript 类型声明。使用 `dayjs.extend(cnWeek)` 后，`Dayjs`
+实例会获得 `cnWeek()` 和 `cnWeek(week)` 类型。
+
 ```ts
 /**
  * 获取周数
@@ -79,6 +82,7 @@ function cnWeek(week): Dayjs {}
 ```bash
 pnpm install
 pnpm test
+pnpm run typecheck
 pnpm run build
 pnpm run pack:dry-run
 ```

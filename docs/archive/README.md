@@ -31,6 +31,8 @@ YYYY-MM-DD-short-stage-name.md
 | --- | --- | --- | --- |
 | 2026-05-30 | `2026-05-30-npm-package-boundary.md` | TODO-0001, TODO-0002 | npm 发布包边界整改 |
 | 2026-05-30 | `2026-05-30-pnpm-workflow.md` | TODO-0007 | pnpm 管理器与本地验证流程 |
+| 2026-05-30 | `2026-05-30-cnweek-boundary-tests.md` | TODO-0003 | cnWeek 边界测试矩阵 |
+| 2026-05-30 | `2026-05-30-ci-workflow.md` | TODO-0009 | CI 基础验证流水线 |
 
 
 ## 工作流
