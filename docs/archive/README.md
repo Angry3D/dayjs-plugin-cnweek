@@ -44,6 +44,7 @@ YYYY-MM-DD-short-stage-name.md
 | 2026-05-30 | `2026-05-30-large-week-normalization.md`       | TODO-0015            | 大跨度 week 归一化与 54 周测试 |
 | 2026-05-30 | `2026-05-30-english-readme.md`                 | TODO-0016            | 英文 README 与语言切换         |
 | 2026-05-30 | `2026-05-30-release-v1.1.0.md`                 | TODO-0017            | v1.1.0 发布                    |
+| 2026-05-30 | `2026-05-30-pnpm-version-source.md`            | TODO-0018            | pnpm 版本单一来源              |
 
 ## 工作流
 

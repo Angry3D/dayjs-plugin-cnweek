@@ -29,6 +29,7 @@ idle
 
 - `v1.1.0` 已由维护者手动发布成功。
 - 后续如继续优化，应先从 `docs/backlog.md` 登记新待办。
+- TODO-0018 已完成并归档到 `docs/archive/2026-05-30-pnpm-version-source.md`。
 
 ## 阻塞项
 

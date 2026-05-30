@@ -91,7 +91,7 @@
 - 用户于 2026-05-30 确认 `@relaxcoder/dayjs-plugin-cnweek@1.1.0` 已成功发布。
 - 用户于 2026-05-30 明确要求 `package.json` 纳入 `"packageManager": "pnpm@8.15.9"` 和 `engines.node: ">=20 <21"`。
 - 用户于 2026-05-30 根据当前构建产物兼容性判断，确认移除 `engines.node` 限制。
-- 2026-05-30 新增 `.github/workflows/ci.yml`，CI 使用 Node 20 与 `pnpm@8.15.9`，执行 install、test、build 和 pack dry-run。
+- 2026-05-30 新增 `.github/workflows/ci.yml`，CI 使用 Node 20，并通过 `package.json.packageManager` 声明确定 pnpm 版本，执行 install、test、build 和 pack dry-run。
 - 2026-05-30 将源码迁移到 TypeScript，并通过 `tsc` 生成 `build/index.js` 与 `dist/index.d.ts`。
 - 2026-05-30 配置 ESM 优先入口和 CJS fallback，发布入口为 `exports.import`、`exports.require`、`exports.types`。
 - 2026-05-30 明确包元数据：`sideEffects: false`，`peerDependencies.dayjs` 为 `>=1.8.0 <2`，README 增加兼容性说明。
