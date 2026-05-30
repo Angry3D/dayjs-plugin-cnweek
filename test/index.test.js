@@ -47,6 +47,7 @@ describe('set cnWeek', () => {
     ['2024-02-29', 1, '2024-01-04'],
     ['2024-02-29', 9, '2024-02-29'],
     ['2024-02-29', 10, '2024-03-07'],
+    ['2024-02-29', '10abc', '2024-03-07'],
     ['2024-02-29', 53, '2024-12-31']
   ])('sets %s to week %s', (ymd, week, expected) => {
     expect(transform(ymd, week)).toBe(expected)
@@ -59,6 +60,18 @@ describe('set cnWeek', () => {
     ['2024-06-12', -52, 2023, 1]
   ])(
     'sets %s to cross-year week %s',
+    (ymd, week, expectedYear, expectedWeek) => {
+      expectSetWithinCnWeek(ymd, week, expectedYear, expectedWeek)
+    }
+  )
+
+  test.each([
+    ['2024-06-12', 1000, 2042, 45],
+    ['2024-06-12', -1000, 2005, 8],
+    ['2024-06-12', 10000, 2212, 28],
+    ['2024-06-12', -10000, 1835, 23]
+  ])(
+    'sets %s to large cross-year week %s',
     (ymd, week, expectedYear, expectedWeek) => {
       expectSetWithinCnWeek(ymd, week, expectedYear, expectedWeek)
     }

@@ -7,29 +7,29 @@
 
 ## 当前目标
 
-推进 `TODO-0012`：增加代码质量脚本和静态检查，让格式检查与 TypeScript 静态检查可以通过统一 lint 命令在本地和 CI 中执行。
+推进 `TODO-0006`：改善 `cnWeek` 实现的可读性和输入处理，在保持现有行为兼容的前提下显式化 week 输入解析，并减少跨年设置对递归的依赖。
 
 ## 关联待办
 
-- `TODO-0012` 增加代码质量脚本和静态检查
+- `TODO-0006` 改善 `cnWeek` 实现的可读性和输入处理
 
 ## 当前计划
 
-1. 归档已完成的 `TODO-0011`。
-2. 基于现有 Prettier 和 TypeScript 配置补充质量检查脚本。
-3. 增加 `.prettierignore`，避免检查构建产物、缓存和锁文件。
-4. 将 lint 步骤纳入 CI 与 `verify`。
+1. 归档已完成的 `TODO-0012`。
+2. 明确当前 `weekVal` 解析行为，保留 `parseInt` 兼容语义但改为显式 helper。
+3. 将跨年 week 设置改为迭代归一化，避免超大 week 值一年一年递归调用。
+4. 增加测试覆盖数字字符串、带后缀字符串和大跨度跨年 week。
 5. 运行验证并记录结果。
 
 ## 任务拆解
 
-| 任务                                       | 状态 | 备注                                                                         |
-| ------------------------------------------ | ---- | ---------------------------------------------------------------------------- |
-| 归档 `TODO-0011` 版本管理与 changelog 流程 | done | 已写入 `docs/archive/2026-05-30-versioning-changelog.md` 并从 backlog 移除。 |
-| 补充格式检查脚本                           | done | 已新增 `format`、`format:check` 与 `.prettierignore`。                       |
-| 补充统一 lint 脚本                         | done | 已新增 `lint = format:check + typecheck`。                                   |
-| 接入 CI 与 verify                          | done | 已在 CI 增加 lint 步骤，并让 `verify` 先执行 `lint`。                        |
-| 执行验证并沉淀结论                         | done | 已运行 `pnpm run lint`、`pnpm run verify` 与 `git diff --check`。            |
+| 任务                                    | 状态 | 备注                                                                   |
+| --------------------------------------- | ---- | ---------------------------------------------------------------------- |
+| 归档 `TODO-0012` 代码质量脚本和静态检查 | done | 已写入 `docs/archive/2026-05-30-quality-checks.md` 并从 backlog 移除。 |
+| 盘点现有 `cnWeek` 设置逻辑              | done | 当前使用 `parseInt` 解析，并通过递归处理跨年 week。                    |
+| 重构输入解析与跨年设置                  | done | 已保留兼容行为，改为显式解析和迭代归一化。                             |
+| 补充回归测试                            | done | 已覆盖带后缀字符串和大跨度跨年 week。                                  |
+| 执行验证并沉淀结论                      | done | 已运行 `pnpm run verify` 与 `git diff --check`。                       |
 
 ## 状态
 
@@ -37,9 +37,9 @@ done
 
 ## 决策记录
 
-- 当前先使用已有 Prettier 和 TypeScript 能力，不新增 ESLint 依赖。
-- `lint` 聚合格式检查和 TypeScript 静态检查，避免本地与 CI 命令分裂。
-- `verify` 先执行 `lint`，再执行测试和 pack dry-run。
+- 本阶段不改变公开 API 或既有兼容行为。
+- `parseInt` 的历史兼容语义先保留，例如 `"10abc"` 仍按 `10` 处理。
+- 跨年设置改为迭代归一化，避免超大 week 值产生深层递归。
 
 ## 阻塞项
 
@@ -47,10 +47,10 @@ done
 
 ## 验证
 
-- `pnpm run lint`
 - `pnpm run verify`
 - `git diff --check`
+- Jest 测试从 22 条增加到 27 条，覆盖大跨度跨年 week 与带后缀字符串解析
 
 ## 下一步
 
-等待用户确认后归档 `TODO-0012`；下一阶段建议推进 `TODO-0006` 或 `TODO-0008`。真实发布仍保留到全部优化完成后的最终阶段。
+等待用户确认后归档 `TODO-0006`；下一阶段建议推进 `TODO-0008`。真实发布仍保留到全部优化完成后的最终阶段。

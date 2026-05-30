@@ -38,6 +38,7 @@ YYYY-MM-DD-short-stage-name.md
 | 2026-05-30 | `2026-05-30-package-compatibility-metadata.md` | TODO-0013            | 运行时兼容范围和包元数据  |
 | 2026-05-30 | `2026-05-30-safe-release-preparation.md`       | TODO-0010            | 安全发布准备流程          |
 | 2026-05-30 | `2026-05-30-versioning-changelog.md`           | TODO-0011            | 版本管理与 changelog 流程 |
+| 2026-05-30 | `2026-05-30-quality-checks.md`                 | TODO-0012            | 代码质量脚本和静态检查    |
 
 ## 工作流
 

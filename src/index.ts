@@ -20,62 +20,21 @@ const cnWeekPlugin: PluginFunc = (_option, dayClass, dayFactory) => {
   const proto = dayClass.prototype
 
   proto.cnWeek = function (this: dayjs.Dayjs, weekVal?: CnWeekValue) {
-    const startOfYearDay = this.startOf('y')
-    const firstIsoWeekDay = getIsoWeekDay(startOfYearDay)
-
-    const endOfYearDay = this.endOf('y')
-    const lastIsoWeekDay = getIsoWeekDay(endOfYearDay)
-
     if (typeof weekVal !== 'undefined') {
-      const normalizedWeekVal = parseInt(String(weekVal))
+      const normalizedWeekVal = normalizeWeekValue(weekVal)
 
       if (Number.isNaN(normalizedWeekVal)) {
         return this
       }
 
-      const minWeek = 1
-      const maxWeek = getCnWeek(firstIsoWeekDay, getDayOfYear(endOfYearDay))
-      const nowIsoWeekDay = getIsoWeekDay(this)
-
-      if (normalizedWeekVal === minWeek) {
-        if (nowIsoWeekDay < firstIsoWeekDay) {
-          return startOfYearDay
-        }
-
-        return startOfYearDay.add(nowIsoWeekDay - firstIsoWeekDay, 'd')
-      }
-
-      if (normalizedWeekVal === maxWeek) {
-        if (nowIsoWeekDay > lastIsoWeekDay) {
-          return endOfYearDay
-        }
-
-        return endOfYearDay.add(nowIsoWeekDay - lastIsoWeekDay, 'd')
-      }
-
-      if (normalizedWeekVal > minWeek && normalizedWeekVal < maxWeek) {
-        return this.add((normalizedWeekVal - this.cnWeek().week) * 7, 'd')
-      }
-
-      if (normalizedWeekVal < minWeek) {
-        const preYear = this.subtract(1, 'y')
-        const preYearMaxWeek = getCnWeek(
-          getIsoWeekDay(preYear.startOf('y')),
-          getDayOfYear(preYear.endOf('y'))
-        )
-
-        return preYear.cnWeek(preYearMaxWeek + normalizedWeekVal)
-      }
-
-      if (normalizedWeekVal > maxWeek) {
-        const nextYear = this.add(1, 'y')
-
-        return nextYear.cnWeek(normalizedWeekVal - maxWeek)
-      }
-
-      return this
+      const target = normalizeCnWeekTarget(this, normalizedWeekVal)
+      return setCnWeekInYear(target.date, target.week)
     }
 
+    const startOfYearDay = this.startOf('y')
+    const firstIsoWeekDay = getIsoWeekDay(startOfYearDay)
+
+    const endOfYearDay = this.endOf('y')
     const curMs = this.valueOf()
 
     const fwStartDay = startOfYearDay
@@ -109,6 +68,73 @@ const cnWeekPlugin: PluginFunc = (_option, dayClass, dayFactory) => {
       end
     }
   } as dayjs.Dayjs['cnWeek']
+
+  function normalizeWeekValue(weekVal: CnWeekValue) {
+    return Number.parseInt(String(weekVal), 10)
+  }
+
+  function normalizeCnWeekTarget(date: dayjs.Dayjs, week: number) {
+    let targetDate = date
+    let targetWeek = week
+
+    while (targetWeek < 1) {
+      targetDate = targetDate.subtract(1, 'y')
+      targetWeek += getMaxCnWeekOfYear(targetDate)
+    }
+
+    let targetMaxWeek = getMaxCnWeekOfYear(targetDate)
+
+    while (targetWeek > targetMaxWeek) {
+      targetWeek -= targetMaxWeek
+      targetDate = targetDate.add(1, 'y')
+      targetMaxWeek = getMaxCnWeekOfYear(targetDate)
+    }
+
+    return {
+      date: targetDate,
+      week: targetWeek
+    }
+  }
+
+  function setCnWeekInYear(date: dayjs.Dayjs, week: number) {
+    const startOfYearDay = date.startOf('y')
+    const firstIsoWeekDay = getIsoWeekDay(startOfYearDay)
+
+    const endOfYearDay = date.endOf('y')
+    const lastIsoWeekDay = getIsoWeekDay(endOfYearDay)
+
+    const minWeek = 1
+    const maxWeek = getMaxCnWeekOfYear(date)
+    const currentIsoWeekDay = getIsoWeekDay(date)
+
+    if (week === minWeek) {
+      if (currentIsoWeekDay < firstIsoWeekDay) {
+        return startOfYearDay
+      }
+
+      return startOfYearDay.add(currentIsoWeekDay - firstIsoWeekDay, 'd')
+    }
+
+    if (week === maxWeek) {
+      if (currentIsoWeekDay > lastIsoWeekDay) {
+        return endOfYearDay
+      }
+
+      return endOfYearDay.add(currentIsoWeekDay - lastIsoWeekDay, 'd')
+    }
+
+    return date.add(
+      (week - getCnWeek(firstIsoWeekDay, getDayOfYear(date))) * 7,
+      'd'
+    )
+  }
+
+  function getMaxCnWeekOfYear(date: dayjs.Dayjs) {
+    const startOfYearDay = date.startOf('y')
+    const endOfYearDay = date.endOf('y')
+
+    return getCnWeek(getIsoWeekDay(startOfYearDay), getDayOfYear(endOfYearDay))
+  }
 
   function getCnWeek(firstIsoWeekDay: number, currentDay: number) {
     return Math.ceil((currentDay + firstIsoWeekDay - 1) / 7)
