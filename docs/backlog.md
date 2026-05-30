@@ -36,7 +36,7 @@
 
 | ID | 优先级 | 状态 | 类型 | 事项 | 来源 | 证据 | 备注 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| TODO-0010 | P1 | candidate | chore | 建立安全发布流程 | npm 开源包最佳实践复核 | 当前仓库未见发布工作流；npm 开源包发布涉及账户权限、token 与供应链安全 | 启用 npm 2FA；优先评估 Trusted Publishing/OIDC 与 provenance；避免长期 npm token。代码侧可准备 release workflow。 |
+| TODO-0010 | P1 | done | chore | 建立安全发布流程 | npm 开源包最佳实践复核 | 当前仓库未见发布工作流；npm 开源包发布涉及账户权限、token 与供应链安全 | 已补只做发布前校验的 workflow 与维护者文档；`npm stage publish` 明确由维护者本人执行，待用户确认后归档。 |
 | TODO-0011 | P2 | candidate | chore | 建立版本管理与 changelog 流程 | npm 开源包最佳实践复核 | 当前仓库未见 changelog 或 release 配置；`.npmignore` 中提到 `.releaserc` 但仓库未记录该文件 | 可评估 Changesets 或语义化 release；明确手动发布与 CI 发布边界。 |
 | TODO-0012 | P2 | candidate | chore | 增加代码质量脚本和静态检查 | npm 开源包最佳实践复核 | 当前已有 `build`、`test`、`typecheck`、`verify` 脚本，但仍没有 `lint` 或格式检查脚本 | 后续评估 ESLint + Prettier 检查，并按需纳入 CI。 |
 | TODO-0006 | P2 | candidate | refactor | 改善 `cnWeek` 实现的可读性和输入处理 | 本次工程巡检 | `src/index.ts` 仍使用 `parseInt`；超大 `weekVal` 仍依赖递归跨年 | 保持行为兼容前提下处理；已有 TODO-0003 测试矩阵兜底。 |

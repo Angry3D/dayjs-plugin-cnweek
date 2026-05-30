@@ -22,8 +22,10 @@
 - 当前仓库记录 `pnpm-lock.yaml`。
 - `package.json` 声明包管理器为 `pnpm@8.15.9`。
 - 仓库包含 GitHub Actions CI 配置：`.github/workflows/ci.yml`。
+- 仓库包含发布前校验 workflow：`.github/workflows/release.yml`。
 - `package.json` 声明类型入口为 `dist/index.d.ts`。
 - 项目包含 TypeScript 类型验证入口：`test/types.ts`。
+- 维护者发布说明记录在 `docs/release.md`。
 - 项目定位为已经发布过的 npm 开源插件包，当前目标是对现有工程做优化和整改。
 - 用户已确认后续优化方向包括：使用 pnpm 作为包管理器、使用 ES Module 作为模块化方案、使用 TypeScript。
 
@@ -34,6 +36,7 @@
 - `test`: `jest`
 - `typecheck`: `tsc --noEmit`
 - `verify`: `pnpm test && pnpm run typecheck && pnpm run pack:dry-run`
+- `release workflow verify step`: `pnpm run verify`
 
 ## 推断事实
 
@@ -54,6 +57,8 @@
 - `jest.config.mjs` 存在，并匹配 `test/(.*).test.js$`。
 - `babel.config.cjs` 存在。
 - `src/index.ts`、`test/index.test.js` 和 `test/types.ts` 存在。
+- `.github/workflows/release.yml` 存在，会在 `v*` tag 推送后执行 `pnpm run verify`，不包含 npm 发布命令。
+- `docs/release.md` 说明 npm 2FA、人工 staged publish 边界，以及 Trusted Publishing / OIDC / provenance 的后续可选升级路径。
 - 用户通过 pnpm 安装依赖后生成 `pnpm-lock.yaml`，并在 2026-05-30 的 npm 发布包边界整改阶段提交。
 - 用户于 2026-05-30 明确说明当前工程是已经发布过的 npm 插件包，目前任务是对当前工程做优化和整改。
 - 用户于 2026-05-30 明确后续优化方向为 pnpm、ES Module 和 TypeScript。
@@ -63,12 +68,14 @@
 - 2026-05-30 将源码迁移到 TypeScript，并通过 `tsc` 生成 `build/index.js` 与 `dist/index.d.ts`。
 - 2026-05-30 配置 ESM 优先入口和 CJS fallback，发布入口为 `exports.import`、`exports.require`、`exports.types`。
 - 2026-05-30 明确包元数据：`sideEffects: false`，`peerDependencies.dayjs` 为 `>=1.8.0 <2`，README 增加兼容性说明。
+- 2026-05-30 新增 `release.yml` 与 `docs/release.md`，默认只自动执行发布前校验；`npm stage publish` 由维护者本人执行，以避免长期 npm token 并保留 2FA 审批。
 
 ## 重要文件
 
 - `package.json`
 - `pnpm-lock.yaml`
 - `README.md`
+- `docs/release.md`
 - `src/index.ts`
 - `test/index.test.js`
 - `test/types.ts`
@@ -77,6 +84,7 @@
 - `babel.config.cjs`
 - `tsconfig.json`
 - `tsconfig.build.json`
+- `.github/workflows/release.yml`
 
 ## 目录说明
 

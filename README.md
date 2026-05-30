@@ -109,3 +109,11 @@ pnpm run pack:dry-run
 ```bash
 pnpm run verify
 ```
+
+## 维护者发布
+
+维护者发布默认不保留长期 `NPM_TOKEN`。当前仓库的发布 workflow 只在推送
+`v*` tag 时执行发布前校验，不会主动执行 `npm stage publish` 或 `npm publish`；
+发布命令由维护者本人执行，并通过 npm 2FA 确认。
+
+详细配置与操作步骤见 [`docs/release.md`](docs/release.md)。
