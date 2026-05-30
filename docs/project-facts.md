@@ -35,6 +35,9 @@
 - `package.json.files` 包含 `CHANGELOG.md`，发布包会携带变更记录。
 - README 面向 npm 使用者，主要包含安装、快速开始、API、TypeScript 和兼容性说明。
 - README 不再依赖本地 `image.png` 展示中国式周数。
+- 仓库包含英文 README：`README.en.md`。
+- `README.md` 与 `README.en.md` 顶部提供中英文切换链接。
+- `package.json.files` 包含 `README.en.md`，发布包会携带英文 README。
 - 项目定位为已经发布过的 npm 开源插件包，当前目标是对现有工程做优化和整改。
 - 用户已确认后续优化方向包括：使用 pnpm 作为包管理器、使用 ES Module 作为模块化方案、使用 TypeScript。
 
@@ -80,6 +83,7 @@
 - `docs/versioning.md` 存在，记录手动 SemVer、changelog 维护规则和最终发布前流程。
 - `package.json.files` 包含 `CHANGELOG.md`。
 - `README.md` 使用文字和表格解释中国式周数，并移除本地开发、发布和版本管理章节。
+- `README.en.md` 存在，并与 `README.md` 互相提供语言切换入口。
 - 用户通过 pnpm 安装依赖后生成 `pnpm-lock.yaml`，并在 2026-05-30 的 npm 发布包边界整改阶段提交。
 - 用户于 2026-05-30 明确说明当前工程是已经发布过的 npm 插件包，目前任务是对当前工程做优化和整改。
 - 用户于 2026-05-30 明确后续优化方向为 pnpm、ES Module 和 TypeScript。
@@ -94,6 +98,7 @@
 - 2026-05-30 增加 `format`、`format:check`、`lint` 脚本，并将 lint 纳入 CI 与 `verify`。
 - 2026-05-30 重构 `cnWeek(week)` 输入解析与跨年设置逻辑，保留 `parseInt` 兼容语义，并用迭代归一化替代跨年递归。
 - 2026-05-30 使用 400 年 / 21215 周周期优化大跨度 `cnWeek(week)` 归一化，并补充 54 周年份测试。
+- 2026-05-30 新增 `README.en.md`，并在中英文 README 顶部提供 GitHub 手动语言切换入口。
 - 2026-05-30 重写 README 为面向 npm 使用者的说明，移除 `image.png` 依赖和维护者细节。
 
 ## 重要文件
@@ -101,6 +106,7 @@
 - `package.json`
 - `pnpm-lock.yaml`
 - `README.md`
+- `README.en.md`
 - `CHANGELOG.md`
 - `docs/release.md`
 - `docs/versioning.md`

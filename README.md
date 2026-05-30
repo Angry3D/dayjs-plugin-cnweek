@@ -1,5 +1,7 @@
 # @relaxcoder/dayjs-plugin-cnweek
 
+简体中文 | [English](README.en.md)
+
 A Day.js plugin for getting or setting the Chinese-style week of year.
 
 一款 `dayjs` 插件，用于获取或设置“中国式第几周”。

@@ -14,6 +14,7 @@ SemVer 管理版本号。
 - 增加 changelog 与版本管理流程文档。
 - 增加格式检查和统一 lint 脚本，并纳入 CI 与 verify。
 - 增加 cnWeek 边界测试矩阵。
+- 增加英文 README，并在 GitHub README 顶部提供中英文切换入口。
 
 ### Changed
 
